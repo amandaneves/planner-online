@@ -1,15 +1,16 @@
-<nav class="navbar navbar-expand-md fixed-top navbar-dark flex-fill">
+<nav class="navbar navbar-expand-md fixed-top flex-fill">
   <!-- header -->
-  <div class="navbar-header pl-2 pr-2 ml-3 text-center">
+  <div class="navbar-header text-center ps-2 pe-2 ms-3">
     <a class="navbar-brand m-0 w-100" href="#">
-      <i class="far fa-flash mr-1"></i>
+      <i class="far fa-flash me-1"></i>
       <img src="./assets/img/logo.png" alt="lightning logo" width="35px">
-      <span class="ml-1">Planner</span>
+      <span class="ms-1">Planner</span>
     </a>
     <a class="btn nav-link" (click)="toggleSidebarPin()"><i class="fa fa-bars"></i></a>
   </div>
   <!-- right menu toggler -->
-  <div class="nav-toggler-right mr-4 d-md-none">
+  <div class="nav-toggler-right d-md-none me-4">
+    <a class="btn nav-link ms-auto me-3" (click)="toggleSidebarPin()"><i class="fa fa-bars"></i></a>
     <button class="" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
       aria-controls="collapseBasic">
       <img src="./assets/img/user.jpg" class="img-fluid" alt="">

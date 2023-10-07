@@ -6,7 +6,6 @@
     border-bottom: 1px solid;
 
     .navbar-header {
-
       .navbar-brand {
         font-size: 1rem;
         font-weight: normal;
@@ -16,14 +15,16 @@
           display: none;
         }
       }
+      .nav-link {
+        display: none;
+      }
     }
 
     .nav-toggler-right {
       position: relative;
-
+      display: inline-flex;
 
       button {
-
         width: 35px;
         height: 35px;
         padding: 0;
@@ -33,12 +34,10 @@
         border: 1px solid #fff;
 
         img {
-
           height: 100%;
           width: 100%;
           object-fit: cover;
           object-position: center;
-
         }
       }
 
@@ -156,6 +155,9 @@
         width: $sidebar-width;
         margin-left: 0!important;
         .navbar-brand span {
+          display: inline-block;
+        }
+        .nav-link {
           display: inline-block;
         }
       }

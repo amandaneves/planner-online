@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
-$bg-color:#f2f3f8;
-$navbar-bg-color : #242939;
-$navbar-color:#6e7899;
-$sidebar-bg-color:#fff;
-$sidebar-color:#3d4465;
-$sidebar-icon-color:#c4cff9;
-$border-color: #f2f3f8;
+$bg-color:#FFFFFF;
+$navbar-bg-color: #ECE3D7;
+$sidebar-bg-color:#F5F5F5;
+$sidebar-color:#808080;
+$navbar-color:#808080;
+$sidebar-icon-color:#000000;
+$navbar-icon-color:#000000;
+$border-color: #F5F5F5;
 
 body {
   font-family: 'Poppins','Roboto', sans-serif;
@@ -21,15 +22,15 @@ body {
 
   nav.navbar {
     background: $navbar-bg-color;
-    border-color: rgba($navbar-color, .3);
+    border-color: rgba($navbar-color, .1);
 
     .navbar-brand {
-      color: lighten($navbar-color, 25%);
+      color: $navbar-icon-color;
     }
 
     .left-nav {
       input.navbar-search {
-        background: #282f48;
+        background: #F5F5F5;
         color:$navbar-color;
         &::placeholder{
           color:rgba($navbar-color, .6);
@@ -42,30 +43,25 @@ body {
     }
 
     .nav-link {
-      color: $navbar-color;
+      color: $navbar-icon-color;
 
-      i {
-        border-color: $navbar-color;
-        background: #282f48;
-      }
-
-      &:hover {
-        color: lighten($navbar-color, 15%);
+      i:hover, i:active, i:focus {
+        color: rgba($navbar-icon-color, .7);
       }
     }
 
     .nav-alert {
-      border-color: #2f3546;
+      border-color: #808080;
 
       &.notifications {
-        background-color: #ff61c5;
-        box-shadow: 0px 0px 4px #ff61c5;
+        background-color: #DC3545;
+        box-shadow: 0px 0px 4px #DC3545;
 
       }
 
       &.messages {
-        background-color: #61b8ff;
-        box-shadow: 0px 0px 4px #61b8ff;
+        background-color: #0F71F2;
+        box-shadow: 0px 0px 4px #0F71F2;
 
       }
     }
@@ -73,7 +69,7 @@ body {
 
   main {
     .overlay {
-      background: #242939;
+      background: $bg-color;
     }
 
     .sidebar {
@@ -90,27 +86,25 @@ body {
 
       .sidebar-profile {
         .name {
-          color: $sidebar-color;
+          color: $sidebar-icon-color;
         }
 
         .role {
-          color: rgba($sidebar-color, .8);
+          color: rgba($sidebar-icon-color, .8);
         }
       }
 
       .sidebar-menu {
         .menu-header {
-          color: rgba($sidebar-color, .5);
+          color: rgba($sidebar-icon-color, .8);
         }
 
         .menu-items {
           a {
-            color: rgba($sidebar-color, .7);
+            color: $sidebar-color;
 
             i {
-              color: $sidebar-icon-color;
-              color: #abb7da;
-              color: rgba(140, 165, 239, 0.6);
+              color: rgba($sidebar-icon-color, .8);
               border: none;
               width: auto;
               font-size: 1rem;
@@ -118,16 +112,12 @@ body {
 
             &:hover,
             &.active {
-              background: #f5f5f9;
-              color: rgba($sidebar-color, .9);
-
-              i {
-                color: #95b0ff;
-              }
+              background: $bg-color;
+              color: rgba($sidebar-color, .8);
             }
           }
         }
-        
+
       }
     }
   }

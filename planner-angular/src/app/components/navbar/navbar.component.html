@@ -4,7 +4,7 @@
     <a class="navbar-brand m-0 w-100" href="#">
       <i class="far fa-flash me-1"></i>
       <img src="./assets/img/logo.png" alt="lightning logo" width="35px">
-      <span class="ms-1">Planner</span>
+      <span class="text-uppercase fw-semibold ms-1">Planner Online</span>
     </a>
     <a class="btn nav-link" (click)="toggleSidebarPin()"><i class="fa fa-bars"></i></a>
   </div>
@@ -13,15 +13,9 @@
     <a class="btn nav-link ms-auto me-3" (click)="toggleSidebarPin()"><i class="fa fa-bars"></i></a>
     <button class="" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
       aria-controls="collapseBasic">
-      <img src="./assets/img/user.jpg" class="img-fluid" alt="">
+      <img src="./assets/img/user.png" class="img-fluid" alt="">
     </button>
   </div>
-  <!-- left box -->
-  <!-- <ul class="navbar-nav flex-fill mt-1 left-nav">
-    <li class="nav-item navicon">
-      <a class="btn nav-link" (click)="toggleSidebarPin()"><i class="fa fa-bars"></i></a>
-    </li>
-  </ul> -->
 
   <!-- right menu -->
   <div class="collapse navbar-collapse right-nav" id="collapseBasic" [(ngbCollapse)]="isCollapsed">
@@ -29,29 +23,15 @@
       <li class="nav-item">
         <a class="btn nav-link">
           <i class="far fa-bell"></i>
-          <span class="link-text">Alerts</span>
+          <span class="link-text">Notificações</span>
           <!-- <span class="badge badge-pill ba dge-danger">3</span> -->
           <span class="nav-alert notifications"></span>
         </a>
       </li>
       <li class="nav-item">
         <a class="btn nav-link">
-          <i class="far fa-envelope"></i>
-          <span class="link-text">Messages</span>
-          <!-- <span class="badge badge-pill badge-success">5</span> -->
-          <span class="nav-alert messages"></span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="btn nav-link">
           <i class="far fa-user"></i>
-          <span class="link-text">Profile</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="btn nav-link">
-          <i class="fas fa-cog"></i>
-          <span class="link-text">Setting</span>
+          <span class="link-text">Minha Conta</span>
         </a>
       </li>
     </ul>

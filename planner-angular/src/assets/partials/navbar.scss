@@ -52,12 +52,11 @@
 
     .nav-alert {
       display: inline-block;
-      width: 11px;
-      height: 11px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       position: absolute;
       top: 0;
-      border: 3px solid #1c1e21;
       transform: translateX(13px);
 
       @media (min-width: 768px) {
@@ -155,6 +154,7 @@
         width: $sidebar-width;
         margin-left: 0!important;
         .navbar-brand span {
+          font-size: 0.9rem;
           display: inline-block;
         }
         .nav-link {

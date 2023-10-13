@@ -70,5 +70,4 @@ public class CategoriaController {
 
         return ResponseEntity.status(HttpStatus.OK).body(categoriaService.save(categoria));
     }
-
 }

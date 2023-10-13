@@ -1,5 +1,7 @@
 package dev.amandaneves.plannerspring.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.UUID;
 
@@ -13,11 +15,12 @@ public class TarefaItem extends DataCadastro {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
+    @JsonIgnore
     @ManyToOne()
     @JoinColumn(name = "tarefa_id", nullable = false, referencedColumnName = "id")
     private Tarefa tarefa;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 150)
     private String descricao;
 
     public UUID getId() {

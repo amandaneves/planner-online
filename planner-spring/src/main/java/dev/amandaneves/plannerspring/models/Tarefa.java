@@ -19,17 +19,17 @@ public class Tarefa extends DataCadastro {
     private UUID id;
 
     @ManyToOne()
-    @JoinColumn(name = "categoria_id", nullable = false, referencedColumnName = "id")
+    @JoinColumn(name = "categoria_id", referencedColumnName = "id")
     private Categoria categoria;
 
-    @Column(nullable = false, length = 120)
+    @Column(nullable = false, length = 150)
     private String descricao;
 
     @Column(nullable = false)
     private Long ordem;
 
-    @Column(name = "data_vencimento", nullable = false)
-    private LocalDate dataVencimento;
+    @Column(name = "data", nullable = false)
+    private LocalDate data;
 
     @Column
     private String hora;
@@ -40,14 +40,14 @@ public class Tarefa extends DataCadastro {
 
     @Column(nullable = false, columnDefinition = "int default 0")
     @Type(type = "org.hibernate.type.NumericBooleanType")
-    private boolean notificacao;
+    private boolean notificar;
 
     @Column(nullable = false, columnDefinition = "int default 0")
     @Type(type = "org.hibernate.type.NumericBooleanType")
-    private boolean repeticao;
+    private boolean repetir;
 
     @OneToMany(mappedBy = "tarefa")
-    private Collection<TarefaItem> itens = new ArrayList<>();
+    private Collection<TarefaItem> itens  = new ArrayList<>();
 
     public UUID getId() {
         return id;
@@ -81,12 +81,12 @@ public class Tarefa extends DataCadastro {
         this.ordem = ordem;
     }
 
-    public LocalDate getDataVencimento() {
-        return dataVencimento;
+    public LocalDate getData() {
+        return data;
     }
 
-    public void setDataVencimento(LocalDate dataVencimento) {
-        this.dataVencimento = dataVencimento;
+    public void setData(LocalDate data) {
+        this.data = data;
     }
 
     public String getHora() {
@@ -105,20 +105,20 @@ public class Tarefa extends DataCadastro {
         this.concluida = concluida;
     }
 
-    public boolean isNotificacao() {
-        return notificacao;
+    public boolean isNotificar() {
+        return notificar;
     }
 
-    public void setNotificacao(boolean notificacao) {
-        this.notificacao = notificacao;
+    public void setNotificar(boolean notificar) {
+        this.notificar = notificar;
     }
 
-    public boolean isRepeticao() {
-        return repeticao;
+    public boolean isRepetir() {
+        return repetir;
     }
 
-    public void setRepeticao(boolean repeticao) {
-        this.repeticao = repeticao;
+    public void setRepetir(boolean repetir) {
+        this.repetir = repetir;
     }
 
     public Collection<TarefaItem> getItens() {

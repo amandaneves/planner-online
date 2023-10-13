@@ -1,5 +1,7 @@
 package dev.amandaneves.plannerspring.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -18,6 +20,7 @@ public class Categoria extends DataCadastro {
     @Column(nullable = false, unique = true, length = 50)
     private String descricao;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "categoria")
     private Collection<Tarefa> tarefas = new ArrayList<>();
 

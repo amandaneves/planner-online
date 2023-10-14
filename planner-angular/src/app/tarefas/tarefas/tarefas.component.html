@@ -7,19 +7,19 @@
           <h5>Minhas Tarefas</h5>
           <button type="button" class="btn btn-lightning end-0 position-absolute rounded-0 mb-2 me-3">Adicionar</button>
         </div>
-        <div class="card-body" *ngIf="tarefas$ | async as tarefas; else carregando" >
+        <div class="card-body m-2" *ngIf="tarefas$ | async as tarefas; else carregando">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item" *ngFor="let tarefa of tarefas">
-              <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox">
-              <label class="form-check-label" for="firstCheckbox">{{ tarefa.descricao }}</label>
+            <li class="list-group-item" *ngFor="let tarefa of tarefas;">
+              <input class="form-check-input me-1" type="checkbox" [checked]="tarefa.concluida" id="{{ tarefa.id }}">
+              <label class="form-check-label" for="{{ tarefa.id }}">{{ tarefa.descricao }}</label>
             </li>
           </ul>
         </div>
-        <!-- <div  class="text-center m-5">
+        <div class="text-center m-5" *ngIf="(tarefas$ | async)?.length == 0">
           <p class="text-muted">Sem tarefas para hoje.</p>
-        </div> -->
+        </div>
         <ng-template #carregando>
-          <div  class="text-center m-5">
+          <div class="text-center m-5">
             <div class="spinner-border text-secondary" role="status">
               <span class="visually-hidden">Carregando...</span>
             </div>

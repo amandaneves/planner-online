@@ -11,8 +11,8 @@
         <div class="card-body">
           <div class="d-flex flex-wrap">
             <button type="button" class="btn btn-outline-success m-1 flex-fill rounded-0" (click)="showSuccess()">Success Message</button>
-            <button type="button" class="btn btn-outline-info m-1 flex-fill rounded-0" (click)="showStandard()">Info Message</button>
-            <button type="button" class="btn btn-outline-warning m-1 flex-fill rounded-0" (click)="showStandard()">Warning Message</button>
+            <button type="button" class="btn btn-outline-info m-1 flex-fill rounded-0" (click)="showInfo()">Info Message</button>
+            <button type="button" class="btn btn-outline-warning m-1 flex-fill rounded-0" (click)="showWarning()">Warning Message</button>
             <button type="button" class="btn btn-outline-danger m-1 flex-fill rounded-0" (click)="showError()">Danger Message</button>
           </div>
         </div>
@@ -28,27 +28,27 @@
         <div class="card-body">
           <div class="row">
             <div class="col-md-4 mb-2">
-              <button type="button" class="btn btn-outline-dark w-100 rounded-0" (click)="showToast('toast-top-left')">Top Left
+              <button type="button" class="btn btn-outline-dark w-100 rounded-0" (click)="showToastr('toast-top-left')">Top Left
                 Message</button>
             </div>
             <div class="col-md-4 mb-2">
-              <button type="button" class="btn btn-outline-dark w-100 rounded-0" (click)="showToast('toast-top-center')">Top
+              <button type="button" class="btn btn-outline-dark w-100 rounded-0" (click)="showToastr('toast-top-center')">Top
                 Center Message</button>
             </div>
             <div class="col-md-4 mb-2">
-              <button type="button" class="btn btn-outline-dark w-100 rounded-0" (click)="showToast('toast-top-right')">Top
+              <button type="button" class="btn btn-outline-dark w-100 rounded-0" (click)="showToastr('toast-top-right')">Top
                 Right Message</button>
             </div>
             <div class="col-md-4 mb-2">
-              <button type="button" class="btn btn-outline-dark w-100 rounded-0" (click)="showToast('toast-bottom-left')">Bottom
+              <button type="button" class="btn btn-outline-dark w-100 rounded-0" (click)="showToastr('toast-bottom-left')">Bottom
                 Left Message</button>
             </div>
             <div class="col-md-4 mb-2">
-              <button type="button" class="btn btn-outline-dark w-100 rounded-0" (click)="showToast('toast-bottom-center')">Bottom
+              <button type="button" class="btn btn-outline-dark w-100 rounded-0" (click)="showToastr('toast-bottom-center')">Bottom
                 Center Message</button>
             </div>
             <div class="col-md-4 mb-2">
-              <button type="button" class="btn btn-outline-dark w-100 rounded-0" (click)="showToast('toast-bottom-right')">Bottom
+              <button type="button" class="btn btn-outline-dark w-100 rounded-0" (click)="showToastr('toast-bottom-right')">Bottom
                 Right Message</button>
             </div>
           </div>

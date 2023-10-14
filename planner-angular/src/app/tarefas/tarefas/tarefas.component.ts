@@ -1,8 +1,8 @@
 import { TarefasService } from './../services/tarefas.service';
 import { Component, OnInit } from '@angular/core';
 import { Tarefa } from '../models/tarefa';
-import { Router } from '@angular/router';
 import { Observable, catchError, of } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-tarefas',
@@ -15,7 +15,7 @@ export class TarefasComponent implements OnInit {
 
   constructor(
     private tarefasService: TarefasService,
-    private router: Router,
+    public toastr: ToastrService
   ) {
   }
 
@@ -27,14 +27,13 @@ export class TarefasComponent implements OnInit {
     this.tarefas$ = this.tarefasService.getAll()
     .pipe(
       catchError(error => {
-        this.onError('Erro ao carregar cursos.');
+        this.onError('Erro ao carregar tarefas.');
         return of([])
       })
     );
   }
 
-  onError(errorMsg: string) {
-    return false;
+  onError(mensagem: string) {
+    return this.toastr.error(mensagem, 'Error');
   }
-
 }

@@ -1,37 +1,34 @@
-import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
-import { Component, OnDestroy } from '@angular/core';
-
-import { ToastService } from './toast-service';
-import { ToastsContainer } from './toasts-container';
+import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-notifications',
-  standalone: true,
-	imports: [NgbTooltipModule, ToastsContainer],
   templateUrl: './notifications.component.html',
   styleUrls: ['./notifications.component.scss']
 })
-export class NotificationsComponent implements OnDestroy {
+export class NotificationsComponent implements OnInit {
 
-  constructor(public toastService: ToastService) { }
+  constructor(public toastr: ToastrService) { }
 
-  showStandard() {
-		this.toastService.show('I am a standard toast');
-	}
-
-  showSuccess() {
-    this.toastService.show('I am a success toast', { classname: 'bg-success text-light', delay: 10000 });
+  ngOnInit() {
   }
 
+  showSuccess() {
+    this.toastr.success('This is a success toastr message!', 'Success');
+  }
+  showInfo() {
+    this.toastr.info('This is an info toastr message!', 'Info');
+  }
+  showWarning() {
+    this.toastr.warning('This is a warning toastr message!', 'Warning');
+  }
   showError() {
-		this.toastService.show('Teste', { classname: 'bg-danger text-light', delay: 15000 });
-	}
+    this.toastr.error('This is an error toastr message!', 'Error');
+  }
+  showToastr(positionClass: string) {
+    this.toastr.info('Hello world!', 'Toastr fun!', {
+      positionClass
+    });
+  }
 
-  showToast(dangerTpl: any) {
-		this.toastService.show(dangerTpl, { classname: 'bg-danger text-light', delay: 15000 });
-	}
-
-  ngOnDestroy(): void {
-		this.toastService.clear();
-	}
 }

@@ -1,19 +1,21 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
+import { AdicionarTarefaModalComponent } from './adicionar-tarefa-modal/adicionar-tarefa-modal.component';
 import { TarefasRoutingModule } from './tarefas-routing.module';
 import { TarefasComponent } from './tarefas/tarefas.component';
-import { TarefasModalAdicionarComponent } from './tarefas-modal-adicionar/tarefas-modal-adicionar.component';
-
 
 @NgModule({
   declarations: [
     TarefasComponent,
-    TarefasModalAdicionarComponent
+    AdicionarTarefaModalComponent
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     TarefasRoutingModule
-  ]
+  ],
+  providers: [],
 })
 export class TarefasModule { }

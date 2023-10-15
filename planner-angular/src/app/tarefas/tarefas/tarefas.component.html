@@ -5,7 +5,9 @@
       <div class="card border-0 rounded-0">
         <div class="card-title mb-1 p-3">
           <h5>Minhas Tarefas</h5>
-          <button type="button" class="btn btn-lightning end-0 position-absolute rounded-0 mb-2 me-3">Adicionar</button>
+          <button type="button" class="btn btn-lightning end-0 position-absolute rounded-0 mb-2 me-3" (click)="openModalAdicionar(adicionarTarefaModal)">
+            Adicionar
+          </button>
         </div>
         <div class="card-body m-2" *ngIf="tarefas$ | async as tarefas; else carregando">
           <ul class="list-group list-group-flush">
@@ -28,4 +30,7 @@
       </div>
     </div>
   </div>
+  <ng-template #adicionarTarefaModal>
+    <app-adicionar-tarefa-modal></app-adicionar-tarefa-modal>
+  </ng-template>
 </div>

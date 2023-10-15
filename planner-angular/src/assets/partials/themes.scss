@@ -180,14 +180,13 @@ body {
     }
 
     &.btn-outline-lightning {
-      color: #5b6582;
+      color: rgba($navbar-icon-color, .8);
       background-color: transparent;
-      border-color: #5b6582;
+      border-color: $navbar-icon-color;
 
       &:hover {
-        color: #f0f3ff;
-        background-color: #5b6582;
-        border-color: #5b6582;
+        background-color: rgba($navbar-bg-color, .8);
+        border-color: rgba($navbar-color, .6);
       }
     }
   }

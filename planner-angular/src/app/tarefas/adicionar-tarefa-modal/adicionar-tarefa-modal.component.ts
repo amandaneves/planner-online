@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
@@ -10,10 +10,11 @@ import { TarefasService } from '../services/tarefas.service';
   templateUrl: './adicionar-tarefa-modal.component.html',
   styleUrls: ['./adicionar-tarefa-modal.component.scss']
 })
-export class AdicionarTarefaModalComponent implements OnInit {
+export class AdicionarTarefaModalComponent {
 
   // @Input() idModal?: string;
   form: FormGroup;
+  erroDescricao: boolean;
   @Output() atualizarLista = new EventEmitter(false);
 
   constructor(
@@ -25,17 +26,20 @@ export class AdicionarTarefaModalComponent implements OnInit {
     this.form = this.formBuilder.group({
       'descricao': [null]
     });
-  }
-
-  ngOnInit(): void {
+    this.erroDescricao = false;
   }
 
   closeModal() {
     this.form.reset();
     this.activeModalService.close();
+    this.erroDescricao = false;
   }
 
   onSubmit() {
+    if (!this.validarTarefa()) {
+      return;
+    }
+
     this.tarefasService.save(this.form.value)
       .subscribe(
         result => {
@@ -45,6 +49,17 @@ export class AdicionarTarefaModalComponent implements OnInit {
           this.onError("Erro ao adicionar tarefa.");
         }
       );
+  }
+
+  validarTarefa() {
+    let camposValidados = true;
+    this.erroDescricao = false;
+    if (!this.form.value.descricao) {
+      camposValidados = false;
+      this.erroDescricao = true;
+    }
+
+    return camposValidados;
   }
 
   buscarTarefas() {
@@ -60,5 +75,4 @@ export class AdicionarTarefaModalComponent implements OnInit {
   onError(mensagem: string) {
     this.toastr.error(mensagem, 'Erro');
   }
-
 }

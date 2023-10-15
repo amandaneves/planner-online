@@ -3,14 +3,14 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 
-import { TarefasService } from '../services/tarefas.service';
+import { CategoriasService } from '../services/categorias.service';
 
 @Component({
-  selector: 'app-adicionar-tarefa-modal',
-  templateUrl: './adicionar-tarefa-modal.component.html',
-  styleUrls: ['./adicionar-tarefa-modal.component.scss']
+  selector: 'app-adicionar-categoria-modal',
+  templateUrl: './adicionar-categoria-modal.component.html',
+  styleUrls: ['./adicionar-categoria-modal.component.scss']
 })
-export class AdicionarTarefaModalComponent {
+export class AdicionarCategoriaModalComponent {
 
   form: FormGroup;
   erroDescricao: boolean;
@@ -19,7 +19,7 @@ export class AdicionarTarefaModalComponent {
   constructor(
     private activeModalService: NgbActiveModal,
     private formBuilder: FormBuilder,
-    private tarefasService: TarefasService,
+    private categoriasService: CategoriasService,
     private toastr: ToastrService
   ) {
     this.form = this.formBuilder.group({
@@ -35,22 +35,22 @@ export class AdicionarTarefaModalComponent {
   }
 
   onSubmit() {
-    if (!this.validarTarefa()) {
+    if (!this.validarCategoria()) {
       return;
     }
 
-    this.tarefasService.save(this.form.value)
+    this.categoriasService.save(this.form.value)
       .subscribe(
         result => {
-          this.onSuccess("Tarefa adicionada com sucesso!");
+          this.onSuccess("Categoria adicionada com sucesso!");
         },
         error => {
-          this.onError("Erro ao adicionar tarefa.");
+          this.onError("Erro ao adicionar categoria.");
         }
       );
   }
 
-  validarTarefa() {
+  validarCategoria() {
     let camposValidados = true;
     this.erroDescricao = false;
     if (!this.form.value.descricao) {
@@ -61,13 +61,13 @@ export class AdicionarTarefaModalComponent {
     return camposValidados;
   }
 
-  buscarTarefas() {
+  buscarCategorias() {
     this.atualizarLista.emit(true);
   }
 
   onSuccess(mensagem: string) {
     this.toastr.success(mensagem, 'Sucesso');
-    this.buscarTarefas();
+    this.buscarCategorias();
     this.closeModal();
   }
 

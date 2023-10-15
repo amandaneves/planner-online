@@ -1,0 +1,21 @@
+<div class="wrapper default-theme">
+  <div class="modal-header">
+    <div class="card-title">
+      <h5>Adicionar Categoria</h5>
+    </div>
+    <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+  </div>
+  <form [formGroup]="form">
+    <div class="modal-body">
+        <div class="form-group">
+          <label for="descricao" class="form-label">Descrição</label>
+          <input type="text" class="form-control rounded-0" id="descricao" placeholder="Descrição da categoria"
+            formControlName="descricao">
+          <small id="descricaoHelp" [hidden]="!erroDescricao" class="form-text text-danger">Informe uma descrição válida.</small>
+        </div>
+    </div>
+  </form>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-lightning rounded-0" (click)="onSubmit()">Salvar</button>
+  </div>
+</div>

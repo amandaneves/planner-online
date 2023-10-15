@@ -3,6 +3,7 @@ package dev.amandaneves.plannerspring.services;
 import dev.amandaneves.plannerspring.models.TarefaItem;
 import dev.amandaneves.plannerspring.repositories.TarefaItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -22,7 +23,7 @@ public class TarefaItemService {
     }
 
     public List<TarefaItem> findAll() {
-        return tarefaItemRepository.findAll();
+        return tarefaItemRepository.findAll(Sort.by(Sort.Direction.ASC, "createdAt"));
     }
 
     public Optional<TarefaItem> findById(UUID id) {

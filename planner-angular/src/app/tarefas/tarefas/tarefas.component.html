@@ -17,7 +17,8 @@
                 <label class="form-check-label" for="{{ tarefa.id }}">{{ tarefa.descricao }}</label>
               </div>
               <div class="col-md-3">
-                <span class="badge bg-light rounded-0 text-dark p-1">Sem categoria</span>
+                <span *ngIf="!tarefa.categoria" class="badge bg-light rounded-0 text-dark p-1">Sem categoria</span>
+                <span *ngIf="tarefa.categoria" class="badge bg-success-subtle rounded-0 text-dark p-1">{{ tarefa.categoria.descricao }}</span>
               </div>
               <div class="col-md-1">
                 <a class="btn btn-sm btn-outline-lightning rounded-0" (click)="removerTarefa(tarefa.id)">

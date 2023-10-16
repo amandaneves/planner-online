@@ -16,6 +16,8 @@ import { FormsComponent } from './pages/forms/forms.component';
 import { MapsComponent } from './pages/maps/maps.component';
 import { TablesComponent } from './pages/tables/tables.component';
 import { TypographyComponent } from './pages/typography/typography.component';
+import { CalendarioComponent } from './calendario/calendario.component';
+import { ObjetivosComponent } from './objetivos/objetivos.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { TypographyComponent } from './pages/typography/typography.component';
     TablesComponent,
     FormsComponent,
     TypographyComponent,
-    MapsComponent
+    MapsComponent,
+    CalendarioComponent,
+    ObjetivosComponent
   ],
   imports: [
     BrowserModule,

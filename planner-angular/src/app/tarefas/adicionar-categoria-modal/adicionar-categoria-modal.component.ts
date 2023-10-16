@@ -30,8 +30,8 @@ export class AdicionarCategoriaModalComponent {
 
   closeModal() {
     this.form.reset();
-    this.activeModalService.close();
     this.erroDescricao = false;
+    this.activeModalService.close();
   }
 
   onSubmit() {

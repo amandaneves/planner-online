@@ -9,9 +9,17 @@
     <div class="modal-body">
         <div class="form-group">
           <label for="descricao" class="form-label">Descrição</label>
-          <input type="text" class="form-control rounded-0" id="descricao" placeholder="Descrição da tarefa"
+          <input id="descricao" type="text" class="form-control rounded-0" placeholder="Descrição da tarefa"
             formControlName="descricao">
           <small id="descricaoHelp" [hidden]="!erroDescricao" class="form-text text-danger">Informe uma descrição válida.</small>
+        </div>
+        <div class="form-group mt-2">
+          <label for="categoriaId" class="form-label">Categoria</label>
+          <select id="categoriaId" class="form-select rounded-0" formControlName="categoriaId" aria-label="Categoria">
+            <ng-container *ngIf="categorias$ | async as categorias;">
+              <option *ngFor="let categoria of categorias;" value="{{ categoria.id }}">{{ categoria.descricao }}</option>
+            </ng-container>
+          </select>
         </div>
     </div>
   </form>

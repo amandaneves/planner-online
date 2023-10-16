@@ -4,6 +4,9 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 
 import { TarefasService } from '../services/tarefas.service';
+import { CategoriasService } from './../services/categorias.service';
+import { Observable, catchError, of } from 'rxjs';
+import { Categoria } from '../models/categoria';
 
 @Component({
   selector: 'app-adicionar-tarefa-modal',
@@ -15,23 +18,39 @@ export class AdicionarTarefaModalComponent {
   form: FormGroup;
   erroDescricao: boolean;
   @Output() atualizarLista = new EventEmitter(false);
+  categorias$: Observable<Categoria[]> | null = null;
 
   constructor(
     private activeModalService: NgbActiveModal,
     private formBuilder: FormBuilder,
+    private toastr: ToastrService,
     private tarefasService: TarefasService,
-    private toastr: ToastrService
+    private categoriasService: CategoriasService
   ) {
+    this.buscarCategorias();
+
     this.form = this.formBuilder.group({
-      'descricao': [null]
+      'descricao': [null],
+      'categoriaId': [null]
     });
+
     this.erroDescricao = false;
+  }
+
+  buscarCategorias() {
+    this.categorias$ = this.categoriasService.getAll()
+    .pipe(
+      catchError(error => {
+        this.onError('Erro ao carregar categorias.');
+        return of([])
+      })
+    );
   }
 
   closeModal() {
     this.form.reset();
-    this.activeModalService.close();
     this.erroDescricao = false;
+    this.activeModalService.close();
   }
 
   onSubmit() {
